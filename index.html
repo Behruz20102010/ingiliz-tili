@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maktab — Portal</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">📘</div>
+        <div>
+          <h1 id="schoolName">№21 Maktab</h1>
+          <p id="schoolSub" class="muted">Maktab portali — sinf ma'lumotlari</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="control-group">
+          <button id="themeToggle" class="btn">Dark</button>
+          <button id="modeToggle" class="btn">GraphMode</button>
+        </div>
+        <div class="control-group">
+          <select id="langSelect" class="select">
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+            <option value="es">ES</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <section class="left-col">
+        <div class="card info-card">
+          <h2 data-i18n="classTitle">Class Info</h2>
+          <div class="info-row"><strong data-i18n="gradeLabel">Grade:</strong> <span id="gradeText">9-"B"</span></div>
+          <div class="info-row"><strong data-i18n="schoolLabel">School:</strong> <span id="schoolText">№52 Maktab</span></div>
+          <div class="info-row"><strong data-i18n="roomLabel">Room:</strong> <span id="roomText">203</span></div>
+        </div>
+
+        <div class="card schedule-card">
+          <div class="card-head">
+            <h2 data-i18n="scheduleTitle">Today's Schedule</h2>
+            <div class="small-muted" id="timeNow"></div>
+          </div>
+
+          <div id="scheduleList" class="schedule-list">
+          </div>
+
+          <div class="schedule-actions">
+            <button id="addSample" class="btn small">Add sample lesson</button>
+            <button id="clearSchedule" class="btn small ghost" title="Clear">Clear</button>
+          </div>
+        </div>
+
+        <div class="card announce-card">
+          <h2 data-i18n="annTitle">Announcements</h2>
+          <div id="annList" class="ann-list">
+          </div>
+
+          <form id="annForm" class="ann-form">
+            <input id="annInput" placeholder="Type announcement..." />
+            <button class="btn" type="submit" data-i18n="addBtn">Add</button>
+          </form>
+        </div>
+      </section>
+
+      <aside class="right-col">
+        <div class="card gallery-card">
+          <h2 data-i18n="galleryTitle">Gallery</h2>
+          <div class="gallery" id="gallery">
+            <img src="images/photo1.jpg" alt="photo1" onerror="this.style.display='none'">
+            <img src="images/photo2.jpg" alt="photo2" onerror="this.style.display='none'">
+            <img src="./img/image.png" alt="placeholder">
+          </div>
+        </div>
+
+        <div class="card stats-card" id="graphCard">
+          <h2 data-i18n="graphTitle">Weekly Overview</h2>
+          <div id="barChart" class="bar-chart" aria-hidden="false">
+          </div>
+          <div class="legend">
+            <span class="chip">Lessons</span>
+            <span class="chip ghost" data-i18n="graphHint">Bar shows number of periods</span>
+          </div>
+        </div>
+
+        <footer class="card small-card copyright">
+          <div>&copy; <span id="year"></span> <span data-i18n="brand">Maktab Portal</span></div>
+          <div class="muted small">Made for school project</div>
+        </footer>
+      </aside>
+    </main>
+  </div>
+
+  <script src="./main.js" defer></script>
+</body>
+</html>

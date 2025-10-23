@@ -1,0 +1,118 @@
+:root{
+  --bg: #f7fbff;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b78d1;
+  --text: #0f172a;
+  --glass: rgba(255,255,255,0.6);
+  --shadow: 0 6px 20px rgba(11,23,40,0.08);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg), #eef6ff);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition: background .25s ease, color .25s ease;
+}
+
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 26px;
+  gap:12px;
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow);
+  z-index:10;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{
+  width:56px;height:56px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent), #56a1ff);
+  display:flex;align-items:center;justify-content:center;font-size:26px;color:white;box-shadow:0 6px 18px rgba(11,23,40,0.12)
+}
+.topbar h1{margin:0;font-size:18px}
+.muted{color:var(--muted);font-size:13px;margin:0}
+
+
+.controls{display:flex;gap:12px;align-items:center}
+.btn{
+  background:var(--card);border:1px solid rgba(15,23,42,0.06);
+  padding:8px 12px;border-radius:8px;font-weight:600;cursor:pointer;box-shadow:0 2px 6px rgba(11,23,40,0.04)
+}
+.btn.ghost{background:transparent;border:1px dashed rgba(11,23,40,0.06)}
+.btn.small{padding:6px 8px;font-size:13px}
+.select{padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.06)}
+
+.main-grid{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:22px;
+  padding:26px;
+  max-width:1200px;margin:20px auto;
+}
+@media (max-width:920px){
+  .main-grid{grid-template-columns:1fr; padding:16px}
+}
+
+
+.card{
+  background:var(--card);
+  border-radius:12px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.info-card .info-row{margin:8px 0;font-size:15px}
+.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+
+
+.schedule-list{display:flex;flex-direction:column;gap:10px}
+.lesson{
+  display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;border-left:4px solid transparent;
+  transition:transform .12s ease;
+}
+.lesson.current{background: linear-gradient(90deg,#fff7e6,#fff1dc); border-left-color:#f59e0b}
+.lesson:hover{transform:translateY(-3px)}
+.lesson .meta{font-size:14px}
+.lesson small{display:block;color:var(--muted)}
+
+
+.ann-list{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.ann-item{padding:10px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(11,23,40,0.04);font-size:14px}
+
+
+.gallery{display:flex;flex-wrap:wrap;gap:10px}
+.gallery img{width:100%;max-width:220px;height:140px;object-fit:cover;border-radius:10px;box-shadow:0 6px 18px rgba(11,23,40,0.06)}
+
+
+.bar-chart{display:flex;gap:10px;align-items:end;height:120px;padding:8px;background:linear-gradient(180deg,#fbfdff,#f8fbff);border-radius:8px;margin-top:8px}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px}
+.bar .rect{width:100%;border-radius:6px;background:linear-gradient(180deg,var(--accent), #56a1ff);transition:height .4s}
+.bar .label{font-size:12px;color:var(--muted)}
+
+
+.small-card{padding:12px;text-align:center}
+.chip{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(11,23,40,0.06);margin-right:6px;font-size:13px}
+
+
+footer{margin-top:16px}
+
+body.dark{
+  --bg: #071026;
+  --card: linear-gradient(180deg,#07182a,#0b2435);
+  --muted: #94a3b8;
+  --accent: #4cc9f0;
+  --text: #e6f6ff;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(76,201,240,0.06), transparent), #021226;
+}
+body.dark .topbar{background:rgba(2,8,18,0.6)}
+body.dark .logo{background:linear-gradient(135deg,#0ea5e9,#1fb6ff)}
+body.dark .btn{background:rgba(255,255,255,0.06);color:var(--text);border:1px solid rgba(255,255,255,0.04)}
